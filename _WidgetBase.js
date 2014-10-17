@@ -954,6 +954,12 @@ define([
 			}
 
 			// Otherwise, just listen for the event on this.domNode.
+			
+			// We lowercase the event type so as to mimic the behaviour of emit
+			if (typeof type === 'string') {
+				type = type.toLowerCase();
+			}
+			
 			return this.own(on(this.domNode, type, func))[0];
 		},
 
